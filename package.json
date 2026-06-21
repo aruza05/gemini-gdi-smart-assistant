@@ -1,13 +1,15 @@
 {
-  "name": "gemini-chatbot-api",
+  "name": "gemini-gdi-smart-assistant",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chatbot GDI Smart Assistant berbasis Node.js, Express, dan Gemini API",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ade Ruyani Zaenudin",
   "license": "ISC",
   "type": "module",
   "dependencies": {
