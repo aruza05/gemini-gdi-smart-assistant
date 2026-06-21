@@ -1,0 +1,9 @@
+Nama gereja: Gereja Duta Injil Sola Gracia
+Deskripsi singkat gereja: gereja komunitas Kristen yang menyediakan informasi ibadah, kegiatan jemaat, Bible Study, renungan, dan pelayanan.
+Jadwal Ibadah Minggu: 08.00 WIB dan 10.00 WIB
+Ibadah Doa: Rabu, 19.00 WIB
+Bible Study: Sabtu, 19.00 WIB
+Event tersedia: Ibadah Raya Minggu, Bible Study Jemaat, dan Doa Bersama
+Ketentuan ibadah: hadir tepat waktu, menjaga ketertiban, mengikuti arahan usher atau petugas
+Kontak admin: Admin GDI
+Catatan penting: jika informasi tidak tersedia dalam knowledge base, arahkan pengguna menghubungi admin gereja.

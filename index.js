@@ -4,6 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from '@google/genai';
+import fs from 'fs';
 
 //setup __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -21,19 +22,14 @@ app.use(express.json());
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server ready on http://localhost:${PORT}`));
-
-const GDI_CONTEXT = `
-KNOWLEDGE BASE GEREJA DUTA INJIL SOLA GRACIA (GDI):
-- Nama gereja: Gereja Duta Injil Sola Gracia
-- Jadwal Ibadah Minggu: 08.00 WIB dan 10.00 WIB
-- Ibadah Doa: Rabu, 19.00 WIB
-- Bible Study: Sabtu, 19.00 WIB
-- Event: Ibadah Raya Minggu, Bible Study Jemaat, dan Doa Bersama
-- Ketentuan ibadah: hadir tepat waktu, menjaga ketertiban, mengikuti arahan usher
-- Kontak admin: Admin GDI
-`;
+const GDI_CONTEXT = (() => {
+    try {
+        return fs.readFileSync(path.join(__dirname, 'gdi-knowledge.txt'), 'utf8');
+    } catch (error) {
+        console.error('Error: Gagal membaca file gdi-knowledge.txt.', error.message);
+        return '';
+    }
+})();
 
 app.post('/api/chat', async (req, res) => {
     const { conversation } = req.body;
@@ -76,3 +72,6 @@ Aturan Penjawaban:
         res.status(500).json({ error: e.message });
     }
 });
+
+const PORT = 3000;
+app.listen(PORT, () => console.log(`Server ready on http://localhost:${PORT}`));
