@@ -12,6 +12,13 @@ const API_URL = (window.location.protocol === 'file:' || !window.location.host.i
   ? 'http://localhost:3000/api/chat'
   : '/api/chat';
 
+window.addEventListener('DOMContentLoaded', () => {
+  appendMessage(
+    'bot',
+    'Halo, saya GDI Smart Assistant. Saya siap membantu menjawab informasi seputar jadwal ibadah, event, Bible Study, dan info GDI. Silakan ketik pertanyaan Anda.'
+  );
+});
+
 /**
  * Helper to escape HTML characters to prevent XSS.
  * @param {string} text 
