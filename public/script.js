@@ -190,6 +190,6 @@ function setLoadingState(isLoading) {
   input.disabled = isLoading;
   if (submitButton) {
     submitButton.disabled = isLoading;
-    submitButton.textContent = isLoading ? 'Sending...' : 'Send';
+    submitButton.textContent = isLoading ? 'Mengirim...' : 'Kirim';
   }
 }
