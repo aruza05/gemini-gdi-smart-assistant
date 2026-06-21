@@ -69,7 +69,16 @@ Aturan Penjawaban:
         });
         res.status(200).json({ result: response.text });
     } catch (e) {
-        res.status(500).json({ error: e.message });
+        console.error('Gemini API Error:', e);
+
+        const errorMessage = e.message || 'Terjadi kesalahan pada server.';
+        const isQuotaError = errorMessage.includes('429') || errorMessage.includes('RESOURCE_EXHAUSTED');
+
+        res.status(isQuotaError ? 429 : 500).json({
+            error: isQuotaError
+                ? 'Kuota Gemini API sedang habis atau terkena limit sementara. Silakan coba lagi nanti.'
+                : errorMessage
+        });
     }
 });
 
